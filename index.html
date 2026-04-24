@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>FitAPP — Personal Fitness Tracker</title>
+  <meta name="description" content="Track calories, workouts, water, and reach your fitness goals with FitAPP.">
+  <meta name="theme-color" content="#06080E">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/screens.css">
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ========== HOME SCREEN ========== -->
+  <div id="screen-home" class="screen">
+    <div class="screen-header">
+      <h1>FitAPP</h1>
+      <button class="btn-icon btn-ghost" onclick="FitApp.Router.navigate('profile')" aria-label="Settings">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+    <div class="screen-body" id="home-content">
+      <!-- Rendered by js/home.js -->
+    </div>
+  </div>
+
+  <!-- ========== FOOD SCREEN ========== -->
+  <div id="screen-food" class="screen">
+    <div class="screen-header">
+      <h1>🍽️ Food Log</h1>
+      <button class="btn-icon btn-ghost" id="btn-add-food" aria-label="Add food">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+    <div class="screen-body" id="food-content">
+      <div class="empty-state">
+        <div class="empty-icon">🍽️</div>
+        <p>Food logging coming in Phase 3</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WORKOUT SCREEN ========== -->
+  <div id="screen-workout" class="screen">
+    <div class="screen-header">
+      <h1>💪 Workouts</h1>
+      <button class="btn-icon btn-ghost" id="btn-add-workout" aria-label="Add workout">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+    <div class="screen-body" id="workout-content">
+      <div class="empty-state">
+        <div class="empty-icon">💪</div>
+        <p>Workout tracking coming in Phase 4</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PROGRESS SCREEN ========== -->
+  <div id="screen-progress" class="screen">
+    <div class="screen-header">
+      <h1>📊 Progress</h1>
+    </div>
+    <div class="screen-body" id="progress-content">
+      <div class="empty-state">
+        <div class="empty-icon">📊</div>
+        <p>Progress tracking coming in Phase 5</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COACH SCREEN ========== -->
+  <div id="screen-coach" class="screen">
+    <div class="screen-body" id="coach-content">
+      <!-- Injected via ai-coach.js -->
+    </div>
+  </div>
+
+  <!-- ========== PROFILE SCREEN ========== -->
+  <div id="screen-profile" class="screen">
+    <div class="screen-header">
+      <h1>👤 Profile</h1>
+    </div>
+    <div class="screen-body" id="profile-content">
+      <div class="empty-state">
+        <div class="empty-icon">👤</div>
+        <p>Profile setup coming in Phase 2</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BOTTOM NAVIGATION ========== -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <div class="nav-item active" data-screen="home">
+      <span class="nav-icon">🏠</span>
+      <span>Home</span>
+    </div>
+    <div class="nav-item" data-screen="food">
+      <span class="nav-icon">🍽️</span>
+      <span>Food</span>
+    </div>
+    <div class="nav-item" data-screen="workout">
+      <span class="nav-icon">💪</span>
+      <span>Workout</span>
+    </div>
+    <div class="nav-item" data-screen="progress">
+      <span class="nav-icon">📊</span>
+      <span>Progress</span>
+    </div>
+    <div class="nav-item" data-screen="coach">
+      <span class="nav-icon">🤖</span>
+      <span>Coach</span>
+    </div>
+    <div class="nav-item" data-screen="profile">
+      <span class="nav-icon">👤</span>
+      <span>Profile</span>
+    </div>
+  </nav>
+
+</div>
+
+<!-- Scripts — order matters: DB first, then app, then features -->
+<script src="js/db.js"></script>
+<script src="js/app.js"></script>
+<script src="js/home.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/onboarding.js"></script>
+<script src="js/food-db.js"></script>
+<script src="js/food.js"></script>
+<script src="js/workout-db.js"></script>
+<script src="js/workout.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/ai-coach.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').then(reg => {
+        console.log('ServiceWorker registered');
+        
+        // Check for updates
+        reg.onupdatefound = () => {
+          const installingWorker = reg.installing;
+          installingWorker.onstatechange = () => {
+            if (installingWorker.state === 'installed') {
+              if (navigator.serviceWorker.controller) {
+                // New content is available; please refresh.
+                console.log('New content available, refreshing...');
+                window.location.reload();
+              }
+            }
+          };
+        };
+      }).catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+
+    // Handle controller change (e.g. when skipWaiting() is called)
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!refreshing) {
+        window.location.reload();
+        refreshing = true;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
